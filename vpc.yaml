@@ -1,0 +1,13 @@
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: VPC
+metadata:
+  labels:
+    crossplane.io/name: example-vpc
+    crossplane.io/managed: "true"
+  name: example-vpc
+spec:
+  forProvider:
+    region: ap-south-1
+    cidrBlock: "10.0.0.0/16"
+  providerConfigRef:
+    name: default

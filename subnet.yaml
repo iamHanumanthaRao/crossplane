@@ -1,0 +1,17 @@
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  labels:
+    crossplane.io/name: example-subnet
+    crossplane.io/managed: "true"
+  name: example-subnet
+spec:
+  forProvider:
+    vpcIdSelector:
+      matchLabels:
+        crossplane.io/name: example-vpc
+    cidrBlock: "10.0.1.0/24"
+    availabilityZone: ap-south-1a
+    region: ap-south-1
+  providerConfigRef:
+    name: default

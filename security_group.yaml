@@ -1,0 +1,16 @@
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: SecurityGroup
+metadata:
+  labels:
+    crossplane.io/name: example-sg
+    crossplane.io/managed: "true"
+  name: example-sg
+spec:
+  forProvider:
+    description: "Allow SSH and HTTP"
+    vpcIdSelector:
+      matchLabels:
+        crossplane.io/name: example-vpc
+    region: ap-south-1
+  providerConfigRef:
+    name: default
